@@ -1,0 +1,7 @@
+pytest
+Pandas
+NumPy
+setuptools
+pyarrow
+pyyaml
+fastparquet

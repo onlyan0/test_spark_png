@@ -1,0 +1,15 @@
+version: 1
+logging_level: development
+files:
+  orders:
+    path: archive/olist_orders_dataset.csv
+    separator: ","
+  items:
+    path: archive/olist_order_items_dataset.csv
+    separator: ","
+  products:
+    path: archive/olist_products_dataset.csv
+    separator: ","
+  output:
+    path: output/dataset_prepared
+    engine: pyarrow
