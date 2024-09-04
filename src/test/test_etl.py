@@ -1,6 +1,12 @@
 import unittest, pytest, io
-import src.main.main as f_main
 import pandas as pd
+from pathlib import Path
+
+import sys
+path_root = Path(__file__).parents[2]
+sys.path.append(str(path_root))
+
+import src.main.main as f_main
 
 @pytest.fixture(scope='session')
 def setup_data_orders():
