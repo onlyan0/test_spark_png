@@ -76,7 +76,6 @@ def test_get_joined_order_items_df(setup_data_clean_orders, setup_data_items, se
 
     orders_df, items_df, products_df = setup_data_clean_orders, setup_data_items, setup_data_products
     test_df = f_main.get_joined_order_items_df(orders_df, items_df, products_df)
-    print(test_df.to_dict())
 
     res_df = pd.DataFrame({'order_id': {0: '556bbf53c2c22fbb9ef31a414dd444a6'},
                             'order_purchase_timestamp': {0: pd.Timestamp('2017-12-21 17:43:41')},

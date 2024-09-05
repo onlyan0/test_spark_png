@@ -87,7 +87,7 @@ def get_clean_and_transform_orders(orders_df: pd.DataFrame) -> pd.DataFrame:
     Returns clean orders data
     1. Filter only delivered and shipped orders
     2. Filter orders with valid purchase date
-    2. Extract year and week number of year from purchase_datetime
+    3. Extract year and week number of year from purchase_datetime
     '''
     clean_orders_df = orders_df[orders_df['order_status'].isin(["delivered","shipped"])] \
         .assign(order_purchase_timestamp=lambda x: pd.to_datetime(x['order_purchase_timestamp'], errors='coerce')) \
