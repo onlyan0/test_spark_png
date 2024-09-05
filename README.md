@@ -2,16 +2,16 @@
 
 This is a test exercise for Nikolai Bulatov
 
-We take 3 csv datasets as an input (orders, order items and products), transform it and write into an output parquet file
+We take 3 csv datasets as an input (orders, order items and products), transform it and write into a single parquet file for Data sceintists to examine sales predictions
 
 ## Data
 
-Data is taken from here
-[here](https://urldefense.com/v3/__https:/www.kaggle.com/datasets/olistbr/brazilian-ecommerce__;!!GF_29dbcQIUBPA!0eOFLZ_-uouGUR1R58CnSad4oYkpTvpQO-knJ6q4Tm2RWOX-bvFOQvApkY9GTOqz_-gnROXtz2bWvH9guhY$)
+Data is taken from
+[Brazilian E-Commerce Public Dataset by Olist | Kaggle](https://urldefense.com/v3/__https:/www.kaggle.com/datasets/olistbr/brazilian-ecommerce__;!!GF_29dbcQIUBPA!0eOFLZ_-uouGUR1R58CnSad4oYkpTvpQO-knJ6q4Tm2RWOX-bvFOQvApkY9GTOqz_-gnROXtz2bWvH9guhY$)
 
 ## Prerequisites
 
-- Python
+- Python 3.10 or higher
 
 ```cmd
 pip3 install -r requisites.txt
