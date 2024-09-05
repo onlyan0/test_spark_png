@@ -18,7 +18,7 @@ pip3 install -r requisites.txt
 ```
 ## Configure and run
 
-Configures are in [config.yml](config.yml)
+Configurations are in [config.yml](config.yml)
 
 Either change it or pass another yml file to python program as an argument
 
