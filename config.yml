@@ -12,4 +12,5 @@ files:
     separator: ","
   output:
     path: output/dataset_prepared
-    engine: pyarrow
+    engine: auto
+    compression: snappy

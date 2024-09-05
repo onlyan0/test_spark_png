@@ -2,6 +2,8 @@
 
 This is a test exercise for Nikolai Bulatov
 
+We take 3 csv datasets as an input (orders, order items and products), transform it and write into an output parquet file
+
 ## Data
 
 Data is taken from here
@@ -17,8 +19,11 @@ pip3 install -r requisites.txt
 ## Configure and run
 
 Configures are in [config.yml](config.yml)
+
 Either change it or pass another yml file to python program as an argument
 
 ```cmd
 pyton3 src/main/main.py --configfilepath another_config.yml
 ```
+
+In config file you can set logging level, paths to 3 input csv datasets (orders, order items and products) and path to output parquet dataset

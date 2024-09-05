@@ -1,6 +1,7 @@
 import unittest, pytest, io
 import pandas as pd
 from pathlib import Path
+import logging
 
 import sys
 path_root = Path(__file__).parents[2]
@@ -8,13 +9,20 @@ sys.path.append(str(path_root))
 
 import src.main.main as f_main
 
+@pytest.fixture(scope='session', autouse=True)
+def set_logger():
+    logging.basicConfig()
+    f_main.logger = logging.getLogger('development')
+    f_main.logger.setLevel(logging.INFO)
+    
+
 @pytest.fixture(scope='session')
 def setup_data_orders():
     print("\nSetting up orders...")
     testdata_orders_not_clean = '''"order_id","customer_id","order_status","order_purchase_timestamp","order_approved_at","order_delivered_carrier_date","order_delivered_customer_date","order_estimated_delivery_date"
 "556bbf53c2c22fbb9ef31a414dd444a6","5883f965ac70043c2e908c3657c5d548",delivered,2017-12-21 17:43:41,2017-12-21 17:56:24,2017-12-26 16:59:04,2018-01-04 21:56:01,2018-01-22 00:00:00
 "36530871a5e80138db53bcfd8a104d90","4dafe3c841d2d6cc8a8b6d25b35704b9",cancelled,2017-05-09 11:48:37,2017-05-11 11:45:14,2017-05-11 13:21:47,,2017-06-08 00:00:00
-b2bd1f09c1b8a4a36940f6f6e49d5dec,"8ed14e450a6268ec13f325e7c2eafeed",approved,2018-02-02 16:15:41,2018-02-02 16:36:26,2018-02-06 01:28:26,2018-02-20 18:09:29,2018-03-07 00:00:00'''
+b2bd1f09c1b8a4a36940f6f6e49d5dec,"8ed14e450a6268ec13f325e7c2eafeed",delivered,2018-02-30 16:15:41,2018-02-30 16:36:26,2018-02-06 01:28:26,2018-02-20 18:09:29,2018-03-07 00:00:00'''
     
     test_orders_df = pd.read_csv(filepath_or_buffer = io.StringIO(testdata_orders_not_clean), sep=',')
 
@@ -22,7 +30,7 @@ b2bd1f09c1b8a4a36940f6f6e49d5dec,"8ed14e450a6268ec13f325e7c2eafeed",approved,201
 
 @pytest.fixture(scope='session')
 def setup_data_clean_orders():
-    print("\nSetting up orders...")
+    print("\nSetting up clean orders...")
  
     test_orders_df = pd.DataFrame({'order_id': {0: '556bbf53c2c22fbb9ef31a414dd444a6'},
                             'order_purchase_timestamp': {0: pd.Timestamp('2017-12-21 17:43:41')},
