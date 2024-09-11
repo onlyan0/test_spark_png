@@ -44,12 +44,12 @@ def parse_args() -> Callable:
     global logger
 
     parser = argparse.ArgumentParser(description='Preapare sale data for next week forecast')
-    parser.add_argument('configfilepath', type=str
+    parser.add_argument('--configfilepath', type=str
                         , help='Path to config file'
                         , nargs='?'
                         , default='config.yml'
                         , const='config.yml')
-    parser.add_argument('loggingconfigfilepath', type=str
+    parser.add_argument('--loggingconfigfilepath', type=str
                         , help='Path to logging config file'
                         , nargs='?'
                         , default='logging_config.yml'
@@ -87,7 +87,7 @@ def get_clean_and_transform_orders(orders_df: pd.DataFrame) -> pd.DataFrame:
     Returns clean orders data
     1. Filter only delivered and shipped orders
     2. Filter orders with valid purchase date
-    2. Extract year and week number of year from purchase_datetime
+    3. Extract year and week number of year from purchase_datetime
     '''
     clean_orders_df = orders_df[orders_df['order_status'].isin(["delivered","shipped"])] \
         .assign(order_purchase_timestamp=lambda x: pd.to_datetime(x['order_purchase_timestamp'], errors='coerce')) \
@@ -140,7 +140,7 @@ def write_data_to_parquet(df: pd.DataFrame, path: str, engine: str='auto', compr
     df.to_parquet(path=path, engine=engine, compression=compression, index=False, partition_cols=['product_category_name','product_id'], **kwargs)
 
 @log_dec
-def get_result_df(path: str=None, filters: list=None) -> pd.DataFrame:
+def get_result_df(path: str=None, filters: list[tuple|list]=None) -> pd.DataFrame:
     '''
     Returns the result dataset as a Pandas Dataframe
     '''

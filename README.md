@@ -14,7 +14,7 @@ Data is taken from
 - Python 3.10 or higher
 
 ```cmd
-pip3 install -r requisites.txt
+pip3 install -r requirements.txt
 ```
 ## Configure and run
 
@@ -23,7 +23,7 @@ Configurations are in [config.yml](config.yml)
 Either change it or pass another yml file to python program as an argument
 
 ```cmd
-pyton3 src/main/main.py --configfilepath another_config.yml
+python3 src/main/main.py --configfilepath another_config.yml
 ```
 
 In config file you can set logging level, paths to 3 input csv datasets (orders, order items and products) and path to output parquet dataset
