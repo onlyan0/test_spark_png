@@ -27,3 +27,16 @@ python3 src/main/main.py --configfilepath another_config.yml
 ```
 
 In config file you can set logging level, paths to 3 input csv datasets (orders, order items and products) and path to output parquet dataset
+
+## Test
+
+Pytest is run using this comand:
+
+```cmd
+pytest
+```
+or
+
+```cmd
+python3 -m pytest -rs
+```
